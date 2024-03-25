@@ -206,4 +206,5 @@ add_action( 'wp_footer', 'logo_glow', 100 );
 //////////////////////// Add Sharpspring Master Tracking Code (Cant include in gtm)
 include('form-tracking.php');
 
-
+// load core functions
+require_once get_stylesheet_directory() . '/core/load.php';
