@@ -30,7 +30,11 @@ myObject.features = [];
 
 // console.log(myObject);
 
-   $.getJSON("https://mattitos.com/wp-json/wp/v2/pages/4778",function(data) {
+console.log( $('.map_wrap').attr('data-id') );
+
+  var data_id = $('.map_wrap').attr('data-id');
+
+   $.getJSON("https://mattitos.com/wp-json/wp/v2/pages/"+data_id,function(data) {
       //console.log(data.acf.location_list);
       $(data.acf.location_list).each(function(index, el) {
         //console.log(el);
@@ -60,6 +64,7 @@ myObject.features = [];
           "name": el.name,
           "phone": el.phone,
           "address": el.address,
+          "url": el.url,
           //"city": "Washington DC",
           //"country": "United States",
           //"crossStreet": "at 15th St NW",
@@ -317,7 +322,8 @@ console.log(myObject);
     var popup = new mapboxgl.Popup({closeOnClick: false})
           .setLngLat(currentFeature.geometry.coordinates)
           .setHTML('<h3>'+currentFeature.properties.name+'</h3>' +
-            '<h4>' + currentFeature.properties.address + '</h4>'+'<div class="pop_phone">'+ currentFeature.properties.phone +'</div>')
+            '<h4>' + currentFeature.properties.address + '</h4>'+'<div class="pop_phone">'+ currentFeature.properties.phone +'</div>' +
+            '<div><a href="'+currentFeature.properties.url+'" class="more_info" target="_blank">Let\'s see the INFO/MENU</a></div>')
           .addTo(map);
   }
 
@@ -344,6 +350,10 @@ console.log(myObject);
       // if (prop.phone) {
       //   details.innerHTML += ' &middot; ' + prop.phoneFormatted;
       // }
+
+      var details_url = listing.appendChild(document.createElement('div'));
+      details_url.innerHTML = '<a href="'+prop.url+'" class="more_info" target="_blank">Let\'s see the INFO/MENU</a>';
+
 
 
 

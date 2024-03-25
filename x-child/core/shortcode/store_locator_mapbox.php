@@ -9,7 +9,7 @@ function store_locator_mapbox_func( $atts ){
   //var_dump($post->ID);
 	?>
 
-  <div class='map_wrap'>
+  <div class='map_wrap' data-id="<?php echo $post->ID; ?>">
 
     <div class="sidebar">
       <div class="heading">

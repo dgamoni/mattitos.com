@@ -12,7 +12,7 @@ function custom_child_scripts() {
 		'custom-child-style', 
 		CORE_URL .  '/css/custom-child.css',
 		array('mapbox-gl-css'),
-		'1.1'
+		rand()
 	);
 
 
@@ -28,7 +28,7 @@ function custom_child_scripts() {
 	    'map_custom_script',
 	    CORE_URL . '/js/map.js',
         array('jquery'), 
-        '1.1', 
+        '1.42', 
         true  
 	);
 
